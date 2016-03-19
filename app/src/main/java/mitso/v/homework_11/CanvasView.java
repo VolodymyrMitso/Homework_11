@@ -10,84 +10,65 @@ import android.view.MotionEvent;
 import android.view.View;
 
 public class CanvasView extends View {
-
-    private Bitmap mBitmap;
-    private Canvas mCanvas;
-    private Path mPath;
-    private Context context;
     private Paint mPaint;
-    private float mX, mY;
-    private static final float TOLERANCE = 5;
+    private Path mPath;
+    private Paint mCanvasPaint;
+    private Canvas mCanvas;
+    private Bitmap mBitmap;
 
-    public CanvasView(Context c, AttributeSet attrs) {
-        super(c, attrs);
-        context = c;
+    public CanvasView(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        this.init();
 
-        mPath = new Path();
+        this.mPaint.setStyle(Paint.Style.STROKE);
+        this.mPaint.setStrokeWidth(getResources().getDimensionPixelSize(R.dimen.d_size_10dp));
+        this.mPaint.setColor(getResources().getColor(R.color.c_black));
+        this.mPaint.setStrokeJoin(Paint.Join.ROUND);
+        this.mPaint.setAntiAlias(true);
+    }
 
-        // and we set a new Paint with the desired attributes
-        mPaint = new Paint();
-        mPaint.setAntiAlias(true);
-        mPaint.setColor(getResources().getColor(R.color.c_black));
-        mPaint.setStyle(Paint.Style.STROKE);
+    private void init() {
+        this.mPaint = new Paint();
+        this.mPath = new Path();
+        this.mCanvasPaint = new Paint();
+    }
 
-        mPaint.setStrokeWidth(getResources().getDimensionPixelSize(R.dimen.d_size_10dp));
+    public void setColor(int color) {
+        this.mPaint.setColor(color);
     }
 
     @Override
     protected void onSizeChanged(int w, int h, int oldW, int oldH) {
         super.onSizeChanged(w, h, oldW, oldH);
-
-        mBitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
-        mCanvas = new Canvas(mBitmap);
+        this.mBitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
+        this.mCanvas = new Canvas(this.mBitmap);
     }
-
 
     @Override
     protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-        canvas.drawPath(mPath, mPaint);
-    }
-
-    private void startTouch(float x, float y) {
-        mPath.moveTo(x, y);
-        mX = x;
-        mY = y;
-    }
-
-    private void moveTouch(float x, float y) {
-        float dx = Math.abs(x - mX);
-        float dy = Math.abs(y - mY);
-        if (dx >= TOLERANCE || dy >= TOLERANCE) {
-            mPath.quadTo(mX, mY, (x + mX) / 2, (y + mY) / 2);
-            mX = x;
-            mY = y;
-        }
-    }
-
-    private void upTouch() {
-        mPath.lineTo(mX, mY);
+        canvas.drawBitmap(this.mBitmap, 0, 0, this.mCanvasPaint);
+        canvas.drawPath(this.mPath, this.mPaint);
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        float x = event.getX();
-        float y = event.getY();
-
+        float eventX = event.getX();
+        float eventY = event.getY();
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
-                startTouch(x, y);
-                invalidate();
+                this.mPath.moveTo(eventX, eventY);
                 break;
             case MotionEvent.ACTION_MOVE:
-                moveTouch(x, y);
-                invalidate();
+                this.mPath.lineTo(eventX, eventY);
                 break;
             case MotionEvent.ACTION_UP:
-                upTouch();
-                invalidate();
+                this.mCanvas.drawPath(this.mPath, this.mPaint);
+                this.mPath.reset();
                 break;
+            default:
+                return false;
         }
+        invalidate();
         return true;
     }
 }

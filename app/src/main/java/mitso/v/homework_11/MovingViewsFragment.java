@@ -29,9 +29,9 @@ public class MovingViewsFragment extends BaseFragment implements View.OnTouchLis
 
         mRelativeLayout_MovingViewsLayout = (ViewGroup) view.findViewById(R.id.rl_MovingViews_MF);
 
-        Button mButton_Button = (Button) view.findViewById(R.id.btn_Button_MF);
+        Button mButton_Button = (Button) view.findViewById(R.id.btn_Black_SF);
         mButton_Button.setOnClickListener(this);
-        Button mButton_Image = (Button) view.findViewById(R.id.btn_Image_MF);
+        Button mButton_Image = (Button) view.findViewById(R.id.btn_Red_SF);
         mButton_Image.setOnClickListener(this);
         Button mButton_Text = (Button) view.findViewById(R.id.btn_Text_MF);
         mButton_Text.setOnClickListener(this);
@@ -43,7 +43,7 @@ public class MovingViewsFragment extends BaseFragment implements View.OnTouchLis
     public void onClick(View v) {
         RelativeLayout.LayoutParams layoutParams;
         switch(v.getId()) {
-            case R.id.btn_Button_MF:
+            case R.id.btn_Black_SF:
                 if (VIEW_CODE != BUTTON_CODE)
                     mRelativeLayout_MovingViewsLayout.removeAllViews();
 
@@ -75,7 +75,7 @@ public class MovingViewsFragment extends BaseFragment implements View.OnTouchLis
 
                 VIEW_CODE = TEXT_CODE;
                 break;
-            case R.id.btn_Image_MF:
+            case R.id.btn_Red_SF:
                 if (VIEW_CODE != IMAGE_CODE)
                     mRelativeLayout_MovingViewsLayout.removeAllViews();
 

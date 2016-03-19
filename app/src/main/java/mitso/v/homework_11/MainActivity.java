@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.mi_sun_switch:
                 if (getSupportFragmentManager().findFragmentById(R.id.fl_FragmentContainer_AM) instanceof MovingViewsFragment)
-                    updateFragment(new PaintFragment());
+                    updateFragment(new SimplePaintFragment());
                 else
                     updateFragment(new MovingViewsFragment());
                 return true;

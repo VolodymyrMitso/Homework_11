@@ -1,38 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/ll_layoutButton_MF"
+        android:id="@+id/ll_layoutButton_SM"
         android:layout_marginTop="@dimen/d_size_10dp">
         <Button
             style="@style/stl_button"
+            android:background="@color/c_black"
             android:id="@+id/btn_Black_SF"
-            android:text="@string/s_buttonCreate"
             android:layout_marginLeft="@dimen/d_size_5dp"/>
         <Button
             style="@style/stl_button"
-            android:id="@+id/btn_Text_MF"
-            android:text="@string/s_textCreate"
+            android:background="@color/c_blue"
+            android:id="@+id/btn_Blue_SF"
             android:layout_marginLeft="@dimen/d_size_5dp"
             android:layout_marginRight="@dimen/d_size_5dp"/>
         <Button
             style="@style/stl_button"
+            android:background="@color/c_red"
             android:id="@+id/btn_Red_SF"
-            android:text="@string/s_imageCreate"
             android:layout_marginRight="@dimen/d_size_5dp"/>
     </LinearLayout>
 
-    <RelativeLayout
+    <mitso.v.homework_11.CanvasView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/shape_layout"
-        android:id="@+id/rl_MovingViews_MF"
-        android:layout_below="@id/ll_layoutButton_MF"
-        android:layout_margin="@dimen/d_size_10dp">
-    </RelativeLayout>
+        android:id="@+id/signature_canvas"
+        android:layout_below="@id/ll_layoutButton_SM"
+        android:layout_margin="@dimen/d_size_10dp"/>
 
 </RelativeLayout>

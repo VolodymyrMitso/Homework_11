@@ -7,4 +7,8 @@
     <color name="c_button1">#00c853</color>
     <color name="c_button2">#000000</color>
     <color name="c_text">#000000</color>
+
+    <color name="c_black">#000000</color>
+    <color name="c_red">#b71c1c</color>
+    <color name="c_blue">#0d47a1</color>
 </resources>

@@ -1,11 +1,13 @@
 <resources>
-
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+    <style name="thm_App" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/c_actionBar</item>
+        <item name="colorPrimaryDark">@color/c_statusBar</item>
     </style>
 
+    <style name="stl_button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/d_size_50dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@drawable/shape_button</item>
+    </style>
 </resources>

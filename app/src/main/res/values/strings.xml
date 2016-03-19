@@ -1,4 +1,12 @@
 <resources>
-    <string name="app_name">Homework_11</string>
+    <string name="s_appName">Homework_11</string>
+
     <string name="s_sun_switch">Switch Fragment</string>
+
+    <string name="s_buttonCreate">create button</string>
+    <string name="s_textCreate">create text</string>
+    <string name="s_imageCreate">create image</string>
+
+    <string name="s_buttonTitle">button</string>
+    <string name="s_textContent">just some text</string>
 </resources>

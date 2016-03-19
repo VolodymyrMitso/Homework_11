@@ -11,7 +11,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        updateFragment(new DragAndDropFragment());
+        updateFragment(new MovingViewsFragment());
     }
 
     @Override
@@ -24,10 +24,10 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.mi_sun_switch:
-                if (getSupportFragmentManager().findFragmentById(R.id.fl_FragmentContainer_AM) instanceof DragAndDropFragment)
+                if (getSupportFragmentManager().findFragmentById(R.id.fl_FragmentContainer_AM) instanceof MovingViewsFragment)
                     updateFragment(new PaintFragment());
                 else
-                    updateFragment(new DragAndDropFragment());
+                    updateFragment(new MovingViewsFragment());
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

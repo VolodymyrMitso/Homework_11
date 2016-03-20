@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-public class MovingViewsFragment extends BaseFragment implements View.OnTouchListener, View.OnClickListener {
+public class MovableViewsFragment extends BaseFragment implements View.OnTouchListener, View.OnClickListener {
 
     private ViewGroup mRelativeLayout_MovingViewsLayout;
 
@@ -25,35 +25,36 @@ public class MovingViewsFragment extends BaseFragment implements View.OnTouchLis
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.moving_views_fragment, container, false);
+        View view = inflater.inflate(R.layout.movable_views_fragment, container, false);
 
         mRelativeLayout_MovingViewsLayout = (ViewGroup) view.findViewById(R.id.rl_MovingViews_MF);
 
-        Button mButton_Button = (Button) view.findViewById(R.id.btn_Black_SF);
+        Button mButton_Button = (Button) view.findViewById(R.id.btn_Button_MF);
         mButton_Button.setOnClickListener(this);
-        Button mButton_Image = (Button) view.findViewById(R.id.btn_Red_SF);
-        mButton_Image.setOnClickListener(this);
         Button mButton_Text = (Button) view.findViewById(R.id.btn_Text_MF);
         mButton_Text.setOnClickListener(this);
+        Button mButton_Image = (Button) view.findViewById(R.id.btn_Image_MF);
+        mButton_Image.setOnClickListener(this);
 
         return view;
     }
 
     @Override
     public void onClick(View v) {
-        RelativeLayout.LayoutParams layoutParams;
+        RelativeLayout.LayoutParams mLayoutParams;
         switch(v.getId()) {
-            case R.id.btn_Black_SF:
+            case R.id.btn_Button_MF:
                 if (VIEW_CODE != BUTTON_CODE)
                     mRelativeLayout_MovingViewsLayout.removeAllViews();
 
                 Button mButton = new Button(mainActivity);
                 mButton.setText(getResources().getString(R.string.s_buttonTitle));
+                mButton.setBackgroundResource(R.drawable.sh_btn_created);
                 mRelativeLayout_MovingViewsLayout.addView(mButton);
-                layoutParams = new RelativeLayout.LayoutParams(
-                        getResources().getDimensionPixelSize(R.dimen.d_size_100dp),
-                        getResources().getDimensionPixelSize(R.dimen.d_size_50dp));
-                mButton.setLayoutParams(layoutParams);
+                mLayoutParams = new RelativeLayout.LayoutParams(
+                        getResources().getDimensionPixelSize(R.dimen.d_size_80dp),
+                        getResources().getDimensionPixelSize(R.dimen.d_size_40dp));
+                mButton.setLayoutParams(mLayoutParams);
                 mButton.setOnTouchListener(this);
 
                 VIEW_CODE = BUTTON_CODE;
@@ -67,25 +68,25 @@ public class MovingViewsFragment extends BaseFragment implements View.OnTouchLis
                 mTextView.setGravity(Gravity.CENTER);
                 mTextView.setTextColor(getResources().getColor(R.color.c_text));
                 mRelativeLayout_MovingViewsLayout.addView(mTextView);
-                layoutParams = new RelativeLayout.LayoutParams(
+                mLayoutParams = new RelativeLayout.LayoutParams(
                         getResources().getDimensionPixelSize(R.dimen.d_size_100dp),
-                        getResources().getDimensionPixelSize(R.dimen.d_size_50dp));
-                mTextView.setLayoutParams(layoutParams);
+                        getResources().getDimensionPixelSize(R.dimen.d_size_100dp));
+                mTextView.setLayoutParams(mLayoutParams);
                 mTextView.setOnTouchListener(this);
 
                 VIEW_CODE = TEXT_CODE;
                 break;
-            case R.id.btn_Red_SF:
+            case R.id.btn_Image_MF:
                 if (VIEW_CODE != IMAGE_CODE)
                     mRelativeLayout_MovingViewsLayout.removeAllViews();
 
                 ImageView mImageView = new ImageView(mainActivity);
                 mImageView.setBackgroundResource(R.drawable.bg_nature);
                 mRelativeLayout_MovingViewsLayout.addView(mImageView);
-                layoutParams = new RelativeLayout.LayoutParams(
+                mLayoutParams = new RelativeLayout.LayoutParams(
                         getResources().getDimensionPixelSize(R.dimen.d_size_100dp),
                         getResources().getDimensionPixelSize(R.dimen.d_size_100dp));
-                mImageView.setLayoutParams(layoutParams);
+                mImageView.setLayoutParams(mLayoutParams);
                 mImageView.setOnTouchListener(this);
 
                 VIEW_CODE = IMAGE_CODE;

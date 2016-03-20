@@ -14,7 +14,7 @@ public class SimplePaintFragment extends BaseFragment implements View.OnClickLis
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.simple_paint_fragment, container, false);
 
-        mCustomCanvas = (CanvasView) view.findViewById(R.id.signature_canvas);
+        mCustomCanvas = (CanvasView) view.findViewById(R.id.cv_Canvas_SF);
 
         Button mButton_Black = (Button) view.findViewById(R.id.btn_Black_SF);
         mButton_Black.setOnClickListener(this);

@@ -30,7 +30,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/sh_layout"
-        android:id="@+id/rl_MovingViews_MF"
+        android:id="@+id/rl_MovableViews_MF"
         android:layout_below="@id/ll_layoutButton_MF"
         android:layout_margin="@dimen/d_size_10dp"
         android:padding="@dimen/d_size_2dp"/>

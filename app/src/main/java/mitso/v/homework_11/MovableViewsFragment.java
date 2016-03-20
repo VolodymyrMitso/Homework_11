@@ -27,7 +27,7 @@ public class MovableViewsFragment extends BaseFragment implements View.OnTouchLi
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.movable_views_fragment, container, false);
 
-        mRelativeLayout_MovableViewsLayout = (ViewGroup) view.findViewById(R.id.rl_MovingViews_MF);
+        mRelativeLayout_MovableViewsLayout = (ViewGroup) view.findViewById(R.id.rl_MovableViews_MF);
 
         Button mButton_Button = (Button) view.findViewById(R.id.btn_Button_MF);
         mButton_Button.setOnClickListener(this);

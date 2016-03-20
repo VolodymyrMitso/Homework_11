@@ -11,9 +11,9 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-public class MovingViewsFragment extends BaseFragment implements View.OnTouchListener, View.OnClickListener {
+public class MovableViewsFragment extends BaseFragment implements View.OnTouchListener, View.OnClickListener {
 
-    private ViewGroup mRelativeLayout_MovingViewsLayout;
+    private ViewGroup mRelativeLayout_MovableViewsLayout;
 
     private int VIEW_CODE = 0;
     private final int BUTTON_CODE = 1;
@@ -25,67 +25,68 @@ public class MovingViewsFragment extends BaseFragment implements View.OnTouchLis
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.moving_views_fragment, container, false);
+        View view = inflater.inflate(R.layout.movable_views_fragment, container, false);
 
-        mRelativeLayout_MovingViewsLayout = (ViewGroup) view.findViewById(R.id.rl_MovingViews_MF);
+        mRelativeLayout_MovableViewsLayout = (ViewGroup) view.findViewById(R.id.rl_MovingViews_MF);
 
-        Button mButton_Button = (Button) view.findViewById(R.id.btn_Black_SF);
+        Button mButton_Button = (Button) view.findViewById(R.id.btn_Button_MF);
         mButton_Button.setOnClickListener(this);
-        Button mButton_Image = (Button) view.findViewById(R.id.btn_Red_SF);
-        mButton_Image.setOnClickListener(this);
         Button mButton_Text = (Button) view.findViewById(R.id.btn_Text_MF);
         mButton_Text.setOnClickListener(this);
+        Button mButton_Image = (Button) view.findViewById(R.id.btn_Image_MF);
+        mButton_Image.setOnClickListener(this);
 
         return view;
     }
 
     @Override
     public void onClick(View v) {
-        RelativeLayout.LayoutParams layoutParams;
+        RelativeLayout.LayoutParams mLayoutParams;
         switch(v.getId()) {
-            case R.id.btn_Black_SF:
+            case R.id.btn_Button_MF:
                 if (VIEW_CODE != BUTTON_CODE)
-                    mRelativeLayout_MovingViewsLayout.removeAllViews();
+                    mRelativeLayout_MovableViewsLayout.removeAllViews();
 
-                Button mButton = new Button(mainActivity);
+                Button mButton = new Button(mMainActivity);
                 mButton.setText(getResources().getString(R.string.s_buttonTitle));
-                mRelativeLayout_MovingViewsLayout.addView(mButton);
-                layoutParams = new RelativeLayout.LayoutParams(
-                        getResources().getDimensionPixelSize(R.dimen.d_size_100dp),
-                        getResources().getDimensionPixelSize(R.dimen.d_size_50dp));
-                mButton.setLayoutParams(layoutParams);
+                mButton.setBackgroundResource(R.drawable.sh_btn_created);
+                mRelativeLayout_MovableViewsLayout.addView(mButton);
+                mLayoutParams = new RelativeLayout.LayoutParams(
+                        getResources().getDimensionPixelSize(R.dimen.d_size_80dp),
+                        getResources().getDimensionPixelSize(R.dimen.d_size_40dp));
+                mButton.setLayoutParams(mLayoutParams);
                 mButton.setOnTouchListener(this);
 
                 VIEW_CODE = BUTTON_CODE;
                 break;
             case R.id.btn_Text_MF:
                 if (VIEW_CODE != TEXT_CODE)
-                    mRelativeLayout_MovingViewsLayout.removeAllViews();
+                    mRelativeLayout_MovableViewsLayout.removeAllViews();
 
-                TextView mTextView = new TextView(mainActivity);
+                TextView mTextView = new TextView(mMainActivity);
                 mTextView.setText(getResources().getString(R.string.s_textContent));
                 mTextView.setGravity(Gravity.CENTER);
                 mTextView.setTextColor(getResources().getColor(R.color.c_text));
-                mRelativeLayout_MovingViewsLayout.addView(mTextView);
-                layoutParams = new RelativeLayout.LayoutParams(
+                mRelativeLayout_MovableViewsLayout.addView(mTextView);
+                mLayoutParams = new RelativeLayout.LayoutParams(
                         getResources().getDimensionPixelSize(R.dimen.d_size_100dp),
-                        getResources().getDimensionPixelSize(R.dimen.d_size_50dp));
-                mTextView.setLayoutParams(layoutParams);
+                        getResources().getDimensionPixelSize(R.dimen.d_size_100dp));
+                mTextView.setLayoutParams(mLayoutParams);
                 mTextView.setOnTouchListener(this);
 
                 VIEW_CODE = TEXT_CODE;
                 break;
-            case R.id.btn_Red_SF:
+            case R.id.btn_Image_MF:
                 if (VIEW_CODE != IMAGE_CODE)
-                    mRelativeLayout_MovingViewsLayout.removeAllViews();
+                    mRelativeLayout_MovableViewsLayout.removeAllViews();
 
-                ImageView mImageView = new ImageView(mainActivity);
+                ImageView mImageView = new ImageView(mMainActivity);
                 mImageView.setBackgroundResource(R.drawable.bg_nature);
-                mRelativeLayout_MovingViewsLayout.addView(mImageView);
-                layoutParams = new RelativeLayout.LayoutParams(
+                mRelativeLayout_MovableViewsLayout.addView(mImageView);
+                mLayoutParams = new RelativeLayout.LayoutParams(
                         getResources().getDimensionPixelSize(R.dimen.d_size_100dp),
                         getResources().getDimensionPixelSize(R.dimen.d_size_100dp));
-                mImageView.setLayoutParams(layoutParams);
+                mImageView.setLayoutParams(mLayoutParams);
                 mImageView.setOnTouchListener(this);
 
                 VIEW_CODE = IMAGE_CODE;
@@ -119,7 +120,7 @@ public class MovingViewsFragment extends BaseFragment implements View.OnTouchLis
                 view.setLayoutParams(layoutParams);
                 break;
         }
-        mRelativeLayout_MovingViewsLayout.invalidate();
+        mRelativeLayout_MovableViewsLayout.invalidate();
         return true;
     }
 }

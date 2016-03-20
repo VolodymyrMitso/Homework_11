@@ -8,13 +8,13 @@ import android.widget.Button;
 
 public class SimplePaintFragment extends BaseFragment implements View.OnClickListener {
 
-    private CanvasView mCustomCanvas;
+    private CanvasView mCanvasView_Canvas;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.simple_paint_fragment, container, false);
 
-        mCustomCanvas = (CanvasView) view.findViewById(R.id.signature_canvas);
+        mCanvasView_Canvas = (CanvasView) view.findViewById(R.id.cv_Canvas_SF);
 
         Button mButton_Black = (Button) view.findViewById(R.id.btn_Black_SF);
         mButton_Black.setOnClickListener(this);
@@ -30,13 +30,13 @@ public class SimplePaintFragment extends BaseFragment implements View.OnClickLis
     public void onClick(View v) {
         switch(v.getId()) {
             case R.id.btn_Black_SF:
-                mCustomCanvas.setColor(getResources().getColor(R.color.c_black));
+                mCanvasView_Canvas.setColor(getResources().getColor(R.color.c_black));
                 break;
             case R.id.btn_Blue_SF:
-                mCustomCanvas.setColor(getResources().getColor(R.color.c_blue));
+                mCanvasView_Canvas.setColor(getResources().getColor(R.color.c_blue));
                 break;
             case R.id.btn_Red_SF:
-                mCustomCanvas.setColor(getResources().getColor(R.color.c_red));
+                mCanvasView_Canvas.setColor(getResources().getColor(R.color.c_red));
                 break;
         }
     }

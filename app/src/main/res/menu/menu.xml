@@ -6,7 +6,7 @@
     <item
         android:id="@+id/mi_sun_switch"
         android:title="@string/s_sun_switch"
-        android:icon="@drawable/ic_sun1"
+        android:icon="@drawable/ic_sun_switch"
         app:showAsAction="always"/>
 
 </menu>

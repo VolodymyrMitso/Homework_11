@@ -10,7 +10,7 @@
         android:layout_marginTop="@dimen/d_size_10dp">
         <Button
             style="@style/stl_button"
-            android:id="@+id/btn_Black_SF"
+            android:id="@+id/btn_Button_MF"
             android:text="@string/s_buttonCreate"
             android:layout_marginLeft="@dimen/d_size_5dp"/>
         <Button
@@ -21,7 +21,7 @@
             android:layout_marginRight="@dimen/d_size_5dp"/>
         <Button
             style="@style/stl_button"
-            android:id="@+id/btn_Red_SF"
+            android:id="@+id/btn_Image_MF"
             android:text="@string/s_imageCreate"
             android:layout_marginRight="@dimen/d_size_5dp"/>
     </LinearLayout>
@@ -29,10 +29,10 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/shape_layout"
+        android:background="@drawable/sh_layout"
         android:id="@+id/rl_MovingViews_MF"
         android:layout_below="@id/ll_layoutButton_MF"
-        android:layout_margin="@dimen/d_size_10dp">
-    </RelativeLayout>
+        android:layout_margin="@dimen/d_size_10dp"
+        android:padding="@dimen/d_size_2dp"/>
 
 </RelativeLayout>

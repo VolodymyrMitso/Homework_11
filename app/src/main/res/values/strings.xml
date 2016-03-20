@@ -8,5 +8,7 @@
     <string name="s_imageCreate">create image</string>
 
     <string name="s_buttonTitle">button</string>
-    <string name="s_textContent">just some text</string>
+    <string name="s_textContent">
+        aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+    </string>
 </resources>

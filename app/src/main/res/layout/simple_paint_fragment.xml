@@ -8,32 +8,37 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/ll_layoutButton_SM"
+        android:id="@+id/ll_layoutButton_SF"
         android:layout_marginTop="@dimen/d_size_10dp">
         <Button
             style="@style/stl_button"
-            android:background="@color/c_black"
+            android:background="@drawable/sel_sh_btn_black"
             android:id="@+id/btn_Black_SF"
             android:layout_marginLeft="@dimen/d_size_5dp"/>
         <Button
             style="@style/stl_button"
-            android:background="@color/c_blue"
+            android:background="@drawable/sel_sh_btn_blue"
             android:id="@+id/btn_Blue_SF"
             android:layout_marginLeft="@dimen/d_size_5dp"
             android:layout_marginRight="@dimen/d_size_5dp"/>
         <Button
             style="@style/stl_button"
-            android:background="@color/c_red"
+            android:background="@drawable/sel_sh_btn_red"
             android:id="@+id/btn_Red_SF"
             android:layout_marginRight="@dimen/d_size_5dp"/>
     </LinearLayout>
 
-    <mitso.v.homework_11.CanvasView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/shape_layout"
-        android:id="@+id/signature_canvas"
-        android:layout_below="@id/ll_layoutButton_SM"
-        android:layout_margin="@dimen/d_size_10dp"/>
+        android:background="@drawable/sh_layout"
+        android:layout_below="@id/ll_layoutButton_SF"
+        android:layout_margin="@dimen/d_size_10dp"
+        android:padding="@dimen/d_size_2dp">
+        <mitso.v.homework_11.CanvasView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/cv_Canvas_SF" />
+    </RelativeLayout>
 
 </RelativeLayout>

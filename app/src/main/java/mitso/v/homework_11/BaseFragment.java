@@ -5,12 +5,12 @@ import android.support.v4.app.Fragment;
 
 public class BaseFragment extends Fragment {
 
-    protected MainActivity mainActivity;
+    protected MainActivity mMainActivity;
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        mainActivity = (MainActivity) context;
+        mMainActivity = (MainActivity) context;
     }
 }
 
